@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antidystopia Polish</title>
+    <title>antidystopia polish</title>
     
-    <!-- Import DotGothic16 from Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
+    <!-- Verified Google Fonts CDN Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet" type="text/css">
 
     <style>
-        /* Reset and center alignment */
         * {
             margin: 0;
             padding: 0;
@@ -25,38 +24,39 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            font-family: 'DotGothic16', sans-serif;
+            font-family: 'DotGothic16', monospace, sans-serif;
             color: #ffffff;
             text-align: center;
         }
 
-        /* Container for perfect centering */
         .container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
-        /* Glitch Animation Setup */
+        /* Glitch Base Setup - Set inline-block to tightly frame lowercase bounds */
         .glitch {
             position: relative;
-            text-transform: uppercase;
+            display: inline-block;
         }
 
-        /* Large Logo Text */
+        /* Lowercase Main Logo Config */
         .logo {
-            font-size: 4rem;
+            font-size: 4.5rem;
             letter-spacing: 2px;
+            line-height: 1.1; /* Tight vertical limit stops font-rendering drops */
         }
 
-        /* Subtitle Text */
+        /* Lowercase Subtitle Config */
         .subtitle {
-            font-size: 1.5rem;
-            letter-spacing: 6px;
+            font-size: 1.6rem;
+            letter-spacing: 5px;
             color: #aaaaaa;
+            line-height: 1.1;
         }
 
-        /* Layer effects using pseudo-elements */
+        /* Pseudo-element replication layers */
         .glitch::before,
         .glitch::after {
             content: attr(data-text);
@@ -66,60 +66,59 @@
             width: 100%;
             height: 100%;
             background: #000000;
+            clip: rect(0, 0, 0, 0); 
         }
 
-        /* Cyan/Blue Glitch Layer */
+        /* Cyan Artifact Layer */
         .glitch::before {
-            left: 2px;
+            left: 3px;
             text-shadow: -2px 0 #00ffff;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
+            animation: glitch-anim 3.5s infinite linear alternate-reverse;
         }
 
-        /* Magenta/Red Glitch Layer */
+        /* Magenta Artifact Layer */
         .glitch::after {
-            left: -2px;
+            left: -3px;
             text-shadow: -2px 0 #ff00ff, 0 2px #ff00ff;
-            clip: rect(85px, 450px, 140px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
+            animation: glitch-anim2 3.5s infinite linear alternate-reverse;
         }
 
-        /* Keyframes for the digital splitting effects */
+        /* Lowercase-optimized slicing slices (Prevents text erasure faults) */
         @keyframes glitch-anim {
-            0% { clip: rect(15px, 9999px, 66px, 0); transform: skew(0.3deg); }
-            5% { clip: rect(34px, 9999px, 55px, 0); transform: skew(0.8deg); }
-            10% { clip: rect(70px, 9999px, 105px, 0); transform: skew(-0.5deg); }
-            15% { clip: rect(12px, 9999px, 85px, 0); transform: skew(0.1deg); }
-            20% { clip: rect(94px, 9999px, 120px, 0); transform: skew(-0.8deg); }
-            25% { clip: rect(40px, 9999px, 45px, 0); transform: skew(1deg); }
-            30% { clip: rect(15px, 9999px, 66px, 0); transform: skew(0deg); }
-            70% { clip: rect(15px, 9999px, 66px, 0); transform: skew(0deg); }
-            71% { clip: rect(50px, 9999px, 60px, 0); transform: skew(-1.2deg); }
-            75% { clip: rect(12px, 9999px, 35px, 0); transform: skew(0.5deg); }
-            80% { clip: rect(85px, 9999px, 110px, 0); transform: skew(-0.2deg); }
-            100% { clip: rect(15px, 9999px, 66px, 0); transform: skew(0deg); }
+            0% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0.3deg); }
+            5% { clip: rect(20px, 9999px, 35px, 0); transform: skew(0.8deg); }
+            10% { clip: rect(40px, 9999px, 70px, 0); transform: skew(-0.5deg); }
+            15% { clip: rect(5px, 9999px, 50px, 0); transform: skew(0.1deg); }
+            20% { clip: rect(55px, 9999px, 80px, 0); transform: skew(-0.8deg); }
+            25% { clip: rect(25px, 9999px, 30px, 0); transform: skew(1deg); }
+            30% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0deg); }
+            70% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0deg); }
+            71% { clip: rect(30px, 9999px, 45px, 0); transform: skew(-1.2deg); }
+            75% { clip: rect(5px, 9999px, 25px, 0); transform: skew(0.5deg); }
+            80% { clip: rect(50px, 9999px, 75px, 0); transform: skew(-0.2deg); }
+            100% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0deg); }
         }
 
         @keyframes glitch-anim2 {
-            0% { clip: rect(65px, 9999px, 115px, 0); transform: skew(-0.3deg); }
-            5% { clip: rect(12px, 9999px, 45px, 0); transform: skew(-0.1deg); }
-            11% { clip: rect(95px, 9999px, 130px, 0); transform: skew(0.5deg); }
-            15% { clip: rect(40px, 9999px, 75px, 0); transform: skew(-0.8deg); }
-            20% { clip: rect(5px, 9999px, 30px, 0); transform: skew(0.2deg); }
-            25% { clip: rect(80px, 9999px, 95px, 0); transform: skew(-1deg); }
-            30% { clip: rect(65px, 9999px, 115px, 0); transform: skew(0deg); }
-            80% { clip: rect(65px, 9999px, 115px, 0); transform: skew(0deg); }
-            81% { clip: rect(110px, 9999px, 125px, 0); transform: skew(1.5deg); }
-            85% { clip: rect(20px, 9999px, 50px, 0); transform: skew(-0.5deg); }
-            90% { clip: rect(75px, 9999px, 90px, 0); transform: skew(0.8deg); }
-            100% { clip: rect(65px, 9999px, 115px, 0); transform: skew(0deg); }
+            0% { clip: rect(35px, 9999px, 75px, 0); transform: skew(-0.3deg); }
+            5% { clip: rect(5px, 9999px, 30px, 0); transform: skew(-0.1deg); }
+            11% { clip: rect(55px, 9999px, 85px, 0); transform: skew(0.5deg); }
+            15% { clip: rect(20px, 9999px, 50px, 0); transform: skew(-0.8deg); }
+            20% { clip: rect(2px, 9999px, 20px, 0); transform: skew(0.2deg); }
+            25% { clip: rect(45px, 9999px, 65px, 0); transform: skew(-1deg); }
+            30% { clip: rect(35px, 9999px, 75px, 0); transform: skew(0deg); }
+            80% { clip: rect(35px, 9999px, 75px, 0); transform: skew(0deg); }
+            81% { clip: rect(65px, 9999px, 80px, 0); transform: skew(1.5deg); }
+            85% { clip: rect(10px, 9999px, 35px, 0); transform: skew(-0.5deg); }
+            90% { clip: rect(40px, 9999px, 60px, 0); transform: skew(0.8deg); }
+            100% { clip: rect(35px, 9999px, 75px, 0); transform: skew(0deg); }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- The data-text attributes are critical; they supply the text to the glitch layers -->
+        <!-- Clean lowercase text rendering strings -->
         <h1 class="glitch logo" data-text="antidystopia polish">antidystopia polish</h1>
         <p class="glitch subtitle" data-text="coming soon">coming soon</p>
     </div>
